@@ -38,6 +38,25 @@ void clearStack(Stack *stackPtr)
     stackPtr->size = 0;
 }
 
+void clearStackR(Stack *stackPtr)
+{
+    if (stackPtr->top == NULL)
+        return;
+    StackNode *helperPtr = stackPtr->top->next;
+    if (helperPtr)
+    {
+        free(stackPtr->top);
+        stackPtr->top = helperPtr;
+        clearStackR(stackPtr);
+    }
+    else
+    {
+        free(stackPtr->top);
+        stackPtr->top = NULL;
+        stackPtr->size = 0;
+    }
+}
+
 int stackSize(Stack *stackPtr)
 {
     return stackPtr->size;
@@ -54,16 +73,26 @@ int stackTop(STACKENTRY *elementPtr, Stack *stackPtr)
 {
     *elementPtr = stackPtr->top->entry;
 }
+
 void copyStack(Stack *srcStackPtr, Stack *desStackPtr)
 {
-    StackNode *helperPtr;
-    helperPtr = srcStackPtr->top;
-    while (helperPtr)
+    StackNode *hSrc = srcStackPtr->top;
+    clearStack(desStackPtr);
+    push(hSrc->entry, desStackPtr);
+    StackNode *hDes = desStackPtr->top;
+    hSrc = hSrc->next;
+    while (hSrc)
     {
-        push(helperPtr->entry, desStackPtr);
-        helperPtr = helperPtr->next;
+        StackNode *newNode = (StackNode *)malloc(sizeof(StackNode));
+        newNode->entry = hSrc->entry;
+        newNode->next = NULL;
+        hDes->next = newNode;
+        hSrc = hSrc->next;
+        hDes = hDes->next;
     }
+    desStackPtr->size = srcStackPtr->size;
 }
+
 void traverseStack(Stack *stackPtr, void (*funcPtr)(STACKENTRY))
 {
     StackNode *helperPtr;

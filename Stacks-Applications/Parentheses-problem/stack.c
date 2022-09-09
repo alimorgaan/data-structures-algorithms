@@ -38,19 +38,6 @@ void clearStack(Stack *stackPtr)
     stackPtr->size = 0;
 }
 
-void clearStackR(Stack *stackPtr)
-{
-    if (stackPtr->top == NULL)
-        return;
-    StackNode *helperPtr = stackPtr->top->next;
-    if (helperPtr)
-    {
-        free(stackPtr->top);
-        stackPtr->top = helperPtr;
-        clearStackR(stackPtr);
-    }
-}
-
 int stackSize(Stack *stackPtr)
 {
     return stackPtr->size;

@@ -31,7 +31,7 @@ int main()
         switch (choise)
         {
         case 1:
-            clearStack(&myStack);
+            clearStackR(&myStack);
             break;
         case 2:
             system("cls");

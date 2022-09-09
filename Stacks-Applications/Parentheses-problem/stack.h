@@ -17,7 +17,6 @@ void createStack(Stack *);
 void push(STACKENTRY, Stack *);
 void pop(STACKENTRY *, Stack *);
 void clearStack(Stack *);
-void clearStackR(Stack *); 
 int stackSize(Stack *);
 int stackFull(Stack *);
 int stackEmpty(Stack *);
