@@ -1,5 +1,4 @@
-#define MAXQUEUE 100
-#define QUEUEENTRY char
+#include "global.h"
 
 typedef struct queuenode
 {
