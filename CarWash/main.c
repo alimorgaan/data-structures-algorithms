@@ -86,17 +86,34 @@ int main()
             break;
         case 4:
             system("cls");
-            printf("------------------Customers Informations------------------\n");
-            traverseQueue(&myQueue, &displayCustomer);
-            system("pause");
+            if (!(queueEmpty(&myQueue)))
+            {
+                printf("------------------Customers Informations------------------\n");
+                traverseQueue(&myQueue, &displayCustomer);
+                system("pause");
+            }
+            else
+            {
+                printf("queue is empty !! \n");
+                system("pause");
+            }
+
             break;
         case 5:
             system("cls");
-            printf("------------------Customers Informations in most recent order------------------\n");
-            traverseQueue(&myQueue, &pushToStack);
-            traverseStack(&myStack, &displayCustomer);
-            clearStack(&myStack);
-            system("pause");
+            if (!(queueEmpty(&myQueue)))
+            {
+                printf("------------------Customers Informations in most recent order------------------\n");
+                traverseQueue(&myQueue, &pushToStack);
+                traverseStack(&myStack, &displayCustomer);
+                clearStack(&myStack);
+                system("pause");
+            }
+            else
+            {
+                printf("queue is empty !! \n");
+                system("pause");
+            }
             break;
         case 6:
             exit(0);
