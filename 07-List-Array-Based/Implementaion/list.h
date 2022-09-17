@@ -17,3 +17,4 @@ void deleteList(int, LISTENTRY *, List *);
 void traverseList(List *, void (*functionPtr)(LISTENTRY));
 void retrieveList(int, LISTENTRY *, List *);
 void replaceList(int, LISTENTRY, List *);
+int sequentialSearch(LISTENTRY , List *);

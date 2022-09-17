@@ -54,3 +54,25 @@ void replaceList(int pos, LISTENTRY element, List *listPtr)
 {
     listPtr->entry[pos] = element;
 }
+
+int sequentialSearch(LISTENTRY element, List *listPtr)
+{
+    for (int i = 0; i < listPtr->size; i++)
+    {
+        if (element == listPtr->entry[i])
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void insertOrder(LISTENTRY element, List *listPtr)
+{
+    int i = 0;
+
+    for (; i < listPtr->size; i++)
+        if (element <= listPtr->entry[i])break;
+    
+    insertList(i, element, listPtr);
+}

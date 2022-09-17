@@ -134,3 +134,19 @@ void replaceList(int pos, LISTENTRY element, List *listPtr)
     }
     listPtr->current->entry = element;
 }
+
+int sequentialSearch(LISTENTRY element, List *listPtr)
+{
+    ListNode *temp = listPtr->head;
+    int currentPos = 0;
+    while (temp)
+    {
+        if (temp->entry == element)
+        {
+            return currentPos;
+        }
+        currentPos++; 
+        temp = temp->next; 
+    }
+    return -1; 
+}

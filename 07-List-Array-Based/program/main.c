@@ -15,8 +15,6 @@ int main()
     }
 
     char temp;
-    char take;
-    deleteList(0 , &take , &myList); 
 
     for (int i = 0; i < 26; i++)
     {
@@ -24,7 +22,11 @@ int main()
         printf("%c\n", temp);
     }
 
-    printf("---------------\n%c", take); 
+
+    int apos ;
+    apos = sequentialSearch('z', &myList);
+    printf("----------------------------\n");
+    printf("a position is : %d", apos); 
 
     system("pause");
 
