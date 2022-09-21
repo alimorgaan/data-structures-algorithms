@@ -72,7 +72,32 @@ void insertOrder(LISTENTRY element, List *listPtr)
     int i = 0;
 
     for (; i < listPtr->size; i++)
-        if (element <= listPtr->entry[i])break;
-    
+        if (element <= listPtr->entry[i])
+            break;
+
     insertList(i, element, listPtr);
+}
+
+int binarySearch(LISTENTRY element, List *listPtr)
+{
+    int bottom = 0;
+    int top = listPtr->size - 1;
+    int center;
+    while (bottom < top)
+    {
+        center = (bottom + top) / 2;
+        if (element == listPtr->entry[center])
+        {
+            return center;
+        }
+        else if (element > listPtr->entry[center])
+        {
+            bottom = center + 1; 
+        }
+        else 
+        {
+            top = center - 1; 
+        }
+    }
+    return -1; 
 }

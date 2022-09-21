@@ -19,3 +19,4 @@ void retrieveList(int, LISTENTRY *, List *);
 void replaceList(int, LISTENTRY, List *);
 int sequentialSearch(LISTENTRY, List *);
 void insertOrder(LISTENTRY, List *);
+int binarySearch(LISTENTRY, List *);
