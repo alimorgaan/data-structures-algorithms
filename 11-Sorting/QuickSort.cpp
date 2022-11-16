@@ -39,10 +39,11 @@ int main(int argc, char const *argv[])
 
     quickSort(test, 0, test.size() - 1);
 
-    for (int i = 0; i < test.size(); i++)
+    for (auto it : test)
     {
-        cout << test[i] << " ";
+        cout << it << " ";
     }
-
+    cout << endl;
+    system("pause");
     return 0;
 }
