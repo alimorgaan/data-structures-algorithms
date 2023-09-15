@@ -1,6 +1,6 @@
 #include "stack.h"
 
-void createStack(Stack *stackPtr)
+void createStack(Stack *stackPtr)  // allah ynawar a5oia 
 {
     stackPtr->top = 0;
 }
